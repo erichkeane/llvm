@@ -619,7 +619,7 @@ llvm::Type *CodeGenTypes::ConvertType(QualType T) {
   case Type::ExtVector:
   case Type::Vector: {
     const VectorType *VT = cast<VectorType>(Ty);
-    ResultType = llvm::VectorType::get(ConvertType(VT->getElementType()),
+    ResultType = llvm::VectorType::get(ConvertTypeForMem(VT->getElementType()),
                                        VT->getNumElements());
     break;
   }
